@@ -1,7 +1,13 @@
+import { Suspense } from "react"
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import routes from "./routes/routes"
+
+const router = createBrowserRouter(routes)
+
 export default function App() {
   return (
-    <main>
-      <h1>Hello World!</h1>
-    </main>
+    <Suspense fallback="Loading...">
+      <RouterProvider router={router} />
+    </Suspense>
   )
 }
