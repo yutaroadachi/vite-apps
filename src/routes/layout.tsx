@@ -1,7 +1,9 @@
+import { ErrorFallback } from "@/components/ErrorFallback"
 import "@/styles/global.css"
 import "@fontsource/montserrat/400.css"
 import "@fontsource/montserrat/700.css"
 import { Suspense } from "react"
+import { ErrorBoundary } from "react-error-boundary"
 import { Link as RouterLink, Outlet } from "react-router-dom"
 
 export default function Layout() {
@@ -14,9 +16,11 @@ export default function Layout() {
       </header>
       <main className="flex-grow">
         <div className="w-[768px] px-4 py-8 mx-auto">
-          <Suspense fallback="Loading...">
-            <Outlet />
-          </Suspense>
+          <ErrorBoundary FallbackComponent={ErrorFallback}>
+            <Suspense fallback="Loading...">
+              <Outlet />
+            </Suspense>
+          </ErrorBoundary>
         </div>
       </main>
       <footer className="bg-main text-white text-center py-8 space-y-8">
