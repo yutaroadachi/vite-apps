@@ -1,0 +1,11 @@
+@layer components {
+  .h2-with-treat {
+    @apply text-[24px] font-bold text-center relative after:content-[""] after:w-[30px] after:h-[3px] after:bg-current after:absolute after:bottom-[-3px] after:left-1/2 after:ml-[-15px];
+  }
+  .logo {
+    @apply text-[32px] font-bold tracking-[1px];
+  }
+  .card {
+    @apply bg-main rounded-[10px] drop-shadow-sm;
+  }
+}
