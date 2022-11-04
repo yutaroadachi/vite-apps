@@ -15,7 +15,7 @@ export default function Layout() {
         </RouterLink>
       </header>
       <main className="flex-grow">
-        <div className="w-[768px] px-4 py-8 mx-auto">
+        <div className="max-w-[768px] px-4 py-8 mx-auto">
           <ErrorBoundary FallbackComponent={ErrorFallback}>
             <Suspense fallback="Loading...">
               <Outlet />
