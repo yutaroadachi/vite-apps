@@ -5,6 +5,9 @@ import Layout from "./layout"
 const Top = lazy(() => import("./"))
 const Shuffle = lazy(() => import("./shuffle"))
 
+const _DevLayout = lazy(() => import("./_/dev/layout"))
+const _DevTop = lazy(() => import("./_/dev"))
+
 const routes: RouteObject[] = [
   {
     path: "/",
@@ -18,6 +21,17 @@ const routes: RouteObject[] = [
       {
         path: "shuffle",
         element: <Shuffle />,
+      },
+      {
+        path: "_/dev",
+        element: <_DevLayout />,
+        errorElement: <div>Something went wrong</div>,
+        children: [
+          {
+            index: true,
+            element: <_DevTop />,
+          },
+        ],
       },
     ],
   },
